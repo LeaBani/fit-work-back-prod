@@ -11,7 +11,8 @@ app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static('/images'));
-app.use('/api',router);
+// app.use('/api',router);
+app.use(router);
 app.use((err, res) => {
     console.error(err.stack)
     res.status(500).json(err.stack)
