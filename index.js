@@ -7,6 +7,7 @@ const port = process.env.PORT || 3000;
 const app = express();
 
 import router from './app/router.js';
+
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -14,7 +15,7 @@ app.use(express.static('/images'));
 // app.use('/api',router);
 app.use(router);
 app.use((err, res) => {
-    console.error(err.stack)
+    console.error('erreur', err.stack)
     res.status(500).json(err.stack)
 });
 
